@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Contact - Sweet Oven Bakery</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <link rel="stylesheet" href="style forgot pass.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+  <style>
+/* Container: blurred black panel */
+.contact-container {
+  background: rgba(0, 0, 0, 0.7);
+  backdrop-filter: blur(8px);
+  padding: 20px;
+  border-radius: 12px;
+  color: #fff;
+}
+
+
+/* Inputs, textarea, and select: consistent dark/blurred style */
+input, textarea, select {
+  background: rgba(0, 0, 0, 0.5);   /* semi-transparent black */
+  backdrop-filter: blur(2px);       /* blurred effect */
+  color: #fff;                      /* white text */
+  border: none;
+  border-radius: 8px;
+  padding: 10px 12px;
+}
+
+
+/* Placeholder color */
+input::placeholder,
+textarea::placeholder {
+  color: #bbbbbb;
+}
+
+
+/* Force email input to stay dark in ALL states */
+input[type="email"],
+input[type="email"]:focus,
+input[type="email"]:active,
+input[type="email"]:valid,
+input[type="email"]:invalid {
+  background: rgba(0, 0, 0, 0.7) !important;
+  color: #fff !important;
+}
+
+
+/* Focus highlight for all inputs */
+input:focus, textarea:focus, select:focus {
+  outline: none;
+  border: 2px solid #fde16f;
+  background: rgba(0, 0, 0, 0.7);
+  color: #fff;
+}
+
+
+/* Dropdown options */
+select option {
+  background: rgba(0, 0, 0, 0.85);
+  color: #fff;
+}
+
+
+  </style>
+</head>
+<body style="margin-top: 130px;">
+
+
+  <h1 class="judul-contact">Contact Us</h1>
+  <p class="text-contact">We’d love to hear from you! Whether you have questions, feedback, or custom orders, reach out to us below.</p>
+
+
+
+
+  <div class="contact-container">
+    <div class="contact-info">
+      <h2>Our Bakery</h2>
+      <p> <i class="fa-solid fa-location-dot"></i> SBH Student Boarding Housing, Jalan kampus Hijau</p>
+      <p> <i class="fa-solid fa-phone"></i> +62 812-9308-1012</p>
+      <p> <i class="fa-solid fa-envelope"></i> cakrarangga270@gmail.com</p>
+      <p> <i class="fa-solid fa-clock"></i> Open daily: 7:00 AM – 9:00 PM</p>
+    </div>
+
+
+    <form id="contactForm" class="form-contact">
+      <h2 class="msg-contact">Send a Message</h2>
+
+
+      <label for="name">Full Name</label>
+      <input type="text" id="name" placeholder="Enter your name" required>
+
+
+      <label for="email">Email Address</label>
+      <input type="email" id="email" placeholder="Enter your email" required>
+
+
+      <label for="topic">Topic</label>
+      <select id="topic" required>
+        <option value=" ">Select a topic</option>
+        <option value="Feedback">Feedback</option>
+        <option value="Complaint">Complaint</option>
+        <option value="Other">Other</option>
+      </select>
+
+
+      <label for="message">Message</label>
+      <textarea id="message" rows="5" placeholder="Write your message here..." required></textarea>
+
+
+      <button type="submit">Send Message</button>
+    </form>
+    <p id ="typingStatus"></p>
+  </div>
+
+
+  <footer>
+        <div class="footer-container">
+            <div class="footer-logo">
+                <h3>Bakery</h3>
+                <p>Baked with love since 1999.</p>
+                <p>From our oven to your heart.</p>
+                <p>Where every bite feels like home.</p>
+                <p>Elegant flavors, timeless quality.</p>
+            </div>
+           
+            <div class="footer-contact">
+                <h4>Contact Us</h4>
+                <a href="https://www.instagram.com/rangga.reswara?igsh=MjJ6MTRuZGxjcXZz&utm_source=qr"> <i class="fa-brands fa-instagram"></i></a>
+                <a href="https://wa.me/6281293081012"> <i class="fa-brands fa-whatsapp"></i></a>
+                <a href="mailto:cakrarangga270@gmail.com"> <i class="fa-regular fa-envelope"></i></a>
+            </div>
+
+
+        </div>
+    </footer>
+</body>
+</html>
+
+
+
+

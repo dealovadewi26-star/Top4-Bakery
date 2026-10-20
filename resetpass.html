@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Reset Password</title>
+  <link rel="stylesheet" href="style forgot pass.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+</head>
+<body>
+  <section class="reset-container">
+    <div class="reset-card">
+      <h2><i class="fa-solid"></i> Change Password</h2>
+      <p class="reset-text">Enter your new password below.</p>
+      
+      <form id="resetPasswordForm">
+        <div class="input-group">
+          <i class="fa-solid fa-lock"></i>
+          <input type="password" id="newPassword" name="newPassword" placeholder="New Password" required>
+        </div>
+        <div class="input-group">
+          <i class="fa-solid fa-lock"></i>
+          <input type="password" id="confirmPassword" name="confirmPassword" placeholder="Confirm Password" required>
+        </div>
+        <button type="submit"><i class="fa-solid "></i> Reset Password</button>
+      </form>
+      
+      <div id="resetMessage"></div>
+      <br>
+      <a href="index.html" class="btn">← Back to Home</a>
+    </div>
+  </section>
+
+  <script src="reset.js"></script>
+</body>
+</html>

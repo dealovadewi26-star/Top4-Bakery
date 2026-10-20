@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Loginpage</title>
+    <link rel="stylesheet" href="main.css">
+</head>
+
+<body>
+
+    <div class="wrapper">
+        <div class="form-wrapper sign in">
+            <form action="">
+                <h2>Sign Up</h2>
+                <div class="input-group">
+                    <input type="text" required>
+                    <label for="username">Username</label>
+                    <span class="username-warning" style="color: red;"></span>
+                </div>
+                <div class="input-group">
+                    <input type="email" required class="email">
+                    <label for="email">Email</label>
+                    <span class="email-warning" style="color: red;"></span>
+                </div>
+                <div class="input-group">
+                    <input type="password" required class="password">
+                    <label for="password">Password</label>
+                    <ion-icon name="eye-off-outline" class="toggle-pass"></ion-icon>
+                    <span class="password-warning" style="color: red;"></span>
+                </div>
+                <div class="forgot-pass">
+                    <a href="forgot.html">Forgot Password</a>
+                </div>
+                <a href="login.html" type="button" class="btn">Submit</a>
+                <div class="sign-link">
+                    <p>Already have account? <a href="login.html" class="signUp-link">Login</a></p>
+                </div>
+            </form>
+        </div>
+    </div>
+
+
+
+
+    <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="../javascript/sign.js"></script>
+</body>
+
+</html>

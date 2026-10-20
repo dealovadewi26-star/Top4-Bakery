@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Order - Sweet Oven Bakery</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <link rel="stylesheet" href="style forgot pass.css">
+</head>
+<body>
+
+  <h1 class="judul-order">Place Your Order</h1>
+  <p class="text-order">Fill out the form below to order your favorite bread or pastry from Sweet Oven Bakery!</p>
+
+  <form class="form-order">
+    <label for="name">Full Name</label>
+    <input type="text" id="name" placeholder="Enter your name" required>
+
+    <label for="email">Email Address</label>
+    <input type="email" id="email" placeholder="Enter your email" required>
+
+    <label for="password">Password</label>
+    <input type="password" id="password" placeholder="Enter your password" required>
+
+    <label for="product">Select Product</label>
+    <select id="product" required>
+      <option value="">-- Choose your item --</option>
+      <option value="Whole Wheat Bread">Whole Wheat Bread</option>
+      <option value="Butter Croissant">Butter Croissant</option>
+      <option value="Chocolate Danish">Chocolate Danish</option>
+      <option value="Strawberry Shortcake">Strawberry Shortcake</option>
+    </select>
+
+    <label for="quantity">Quantity</label>
+    <input type="number" id="quantity" min="1" placeholder="Enter quantity" required>
+
+    <label for="notes">Additional Notes</label>
+    <textarea id="notes" rows="4" placeholder="e.g., No sugar glaze, extra cream, etc."></textarea>
+
+    <button type="submit">Submit Order</button>
+  </form>
+
+  <footer>
+        <div class="footer-container">
+            <div class="footer-logo">
+                <h3>Bakery</h3>
+                <p>Baked with love since 1999.</p>
+                <p>From our oven to your heart.</p>
+                <p>Where every bite feels like home.</p>
+                <p>Elegant flavors, timeless quality.</p>
+            </div>
+            
+            <div class="footer-contact">
+                <h4>Contact Us</h4>
+                <a href="https://www.instagram.com/rangga.reswara?igsh=MjJ6MTRuZGxjcXZz&utm_source=qr"> <i class="fa-brands fa-instagram"></i></a>
+                <a href="https://wa.me/6281293081012"> <i class="fa-brands fa-whatsapp"></i></a>
+                <a href="mailto:cakrarangga270@gmail.com"> <i class="fa-regular fa-envelope"></i></a>
+            </div>
+
+        </div>
+    </footer>
+
+  
+
+</body>
+</html>

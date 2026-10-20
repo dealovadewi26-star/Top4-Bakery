@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Forgot Password</title>
+  <link rel="stylesheet" href="style forgot pass.css">
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+</head>
+<body>
+  <section class="forgot-container">
+    <div class="forgot-card">
+      <h2><i class="fa-solid "></i> Forgot Password</h2>
+      <p class="forgot-text">Enter your registered email and we’ll send you a reset link.</p>
+      
+      <form id="forgotPasswordForm">
+        <div class="input-group">
+          <i class="fa-solid fa-envelope"></i>
+          <input type="email" id="email" name="email" placeholder="example@gmail.com" required>
+        </div>
+        <button type="submit"><i class="fa-solid "></i> Send Reset Link</button>
+      </form>
+      
+      <div id="message"></div>
+    </div>
+  </section>
+  
+  <script src="forgot.js"></script>
+</body>
+</html>
