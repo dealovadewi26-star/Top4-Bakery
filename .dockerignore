@@ -1,0 +1,22 @@
+# Version control and editor files
+.git
+.gitignore
+.vscode
+
+# Secrets and local config
+.env
+.env.*
+!.env.example
+
+# Docker files and docs (not part of the website)
+Dockerfile
+compose.yaml
+docker-compose.yml
+.dockerignore
+README.md
+evidence/
+
+# Logs and junk
+*.log
+.DS_Store
+Thumbs.db
