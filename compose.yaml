@@ -1,0 +1,8 @@
+services:
+  web:
+    build: .
+    image: group06/top4-bakery:week6
+    container_name: top4-bakery
+    ports:
+      - "${HOST_PORT:-8080}:80"
+    restart: unless-stopped
