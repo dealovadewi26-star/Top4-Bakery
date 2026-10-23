@@ -1,204 +1,59 @@
-\# Top 4 Bakery
+# Top 4 Bakery (Dockerized)
 
+## 1. Project overview
+Top 4 Bakery is a static website (HTML, CSS, jQuery) with a home page, menu, order form, contact page, and login / sign-up / forgot-password pages. It has no backend and no database. The Docker setup serves the files with Nginx, so the site runs the same on any computer.
 
+## 2. Prerequisites
+- Docker Engine or Docker Desktop with Docker Compose v2
+- Check with `docker --version` and `docker compose version`
+- Internet access in your browser (the site loads jQuery, Font Awesome, Ionicons, Google Fonts and some images from CDNs)
+- Tested with: Docker __VERSION__ on __OS__
 
-A static bakery website served by Nginx and packaged with Docker. The core feature is the \*\*Order\*\* flow: a visitor opens the Menu, goes to Order, fills in the order form, and submits it.
-
-
-
-\## Prerequisites
-
-
-
-\- Git
-
-\- Docker Desktop with the Docker Engine running
-
-\- Tested with: Docker \[ISI hasil `docker --version`], Docker Compose \[ISI hasil `docker compose version`]
-
-\- Tested on: Windows
-
-
-
-\## 1. Clone the repository
-
-
-
+## 3. Clone and configure
 ```bash
-
-git clone https://github.com/dealovadewi26-star/Top4-Bakery.git
-
-cd Top4-Bakery
-
-git checkout chore/dockerize-project
-
-```
-
-
-
-\## 2. Configure environment variables
-
-
-
-Create your local `.env` from the example file:
-
-
-
-```powershell
-
-\# Windows PowerShell
-
-copy .env.example .env
-
-```
-
-
-
-```bash
-
-\# macOS / Linux
-
+git clone <REPO_URL>
+cd <REPO_FOLDER>
 cp .env.example .env
-
 ```
+`.env` only contains `HOST_PORT` (default `8080`). Change it if that port is already used. Never commit `.env`.
 
-
-
-| Variable | Description | Default |
-
-|----------|-------------|---------|
-
-| `HOST\_PORT` | Port on your computer used to open the website | `8080` |
-
-
-
-`.env` is listed in `.gitignore`. Do not commit it.
-
-
-
-\## 3. Build and start
-
-
-
+## 4. Build and start
 ```bash
-
 docker compose up --build -d
-
 ```
 
+## 5. Access the application
+Open http://localhost:8080 (or the `HOST_PORT` you set). The container listens on port 80, mapped to `HOST_PORT` on your computer.
 
+## 6. Verify it works
+1. `docker compose ps` shows service `web` as `running` and, after about 10 seconds, `healthy`.
+2. `curl -I http://localhost:8080/index.html` returns `HTTP/1.1 200 OK`.
+3. In the browser, click **Menu**, then **Order**, fill the order form and submit. The page responds as it does without Docker.
 
-This builds the image `group06/top4-bakery:week6` (based on `nginx:1.27-alpine`) and starts the `web` service in the background.
-
-
-
-\## 4. Access the app
-
-
-
-| Item | Value |
-
-|------|-------|
-
-| App URL | http://localhost:8080 |
-
-| Host port | `8080` (change with `HOST\_PORT` in `.env`) |
-
-| Container port | `80` |
-
-| Container name | `top4-bakery` |
-
-
-
-\## 5. Verify it works
-
-
-
-| ID | Check | Command / Action | Expected result |
-
-|----|-------|------------------|-----------------|
-
-| V-01 | Service is running | `docker compose ps` | Service `web` shows `running`, then `healthy` after a few seconds |
-
-| V-02 | Health response | `curl.exe -I http://localhost:8080/index.html` | `HTTP/1.1 200 OK` |
-
-| V-03 | Core function | Open http://localhost:8080, go to Menu, then Order, fill in the form and submit | The pages load and the order form can be submitted |
-
-| V-04 (optional) | Restart | `docker compose restart`, then reopen the page | The website still works |
-
-
-
-On macOS / Linux, use `curl -I http://localhost:8080/index.html` for V-02.
-
-
-
-\## 6. View logs and status
-
-
-
+## 7. Logs and status
 ```bash
-
 docker compose ps
-
-docker compose logs web
-
 docker compose logs -f web
-
+docker inspect --format '{{.State.Health.Status}}' top4-bakery
 ```
 
-
-
-\## 7. Stop and clean up
-
-
-
+## 8. Stop and clean up
 ```bash
-
 docker compose down
-
 ```
+This project stores no data, so there are no volumes to remove.
 
+## 9. Troubleshooting
+| Problem | Likely cause | Fix |
+|---|---|---|
+| `port is already allocated` | Another program uses `HOST_PORT` | Change `HOST_PORT` in `.env`, run `docker compose up -d` again |
+| `Cannot connect to the Docker daemon` | Docker is not running | Start Docker Desktop / the Docker service |
+| Page loads but has no styling or icons | No internet for CDN files | Connect to the internet and refresh |
+| Old content after editing files | Image was not rebuilt | `docker compose up --build -d` |
+| Container is `unhealthy` | Nginx failed to start | `docker compose logs web` |
 
-
-This stops and removes the container and the default network.
-
-
-
-\## Troubleshooting
-
-
-
-| Symptom | Cause | Fix |
-
-|---------|-------|-----|
-
-| `port is already allocated` | Port 8080 is used by another program | Change `HOST\_PORT` in `.env`, then run `docker compose up --build -d` again |
-
-| `cannot connect to the Docker daemon` or `dockerDesktopLinuxEngine` error | Docker Desktop is not running | Open Docker Desktop and wait until the engine is running |
-
-| Browser cannot open the page | Container not running or wrong port | Run `docker compose ps`, check the port mapping, read `docker compose logs web` |
-
-| `.env` not found or `HOST\_PORT` ignored | `.env` was not created | Run `copy .env.example .env` and start again |
-
-| Changes to the website do not appear | Old image is still used | Run `docker compose up --build -d` again |
-
-| Status stays `starting` | Healthcheck is still waiting | Wait up to 30 seconds, then run `docker compose ps` again |
-
-| `LF will be replaced by CRLF` warning | Line ending difference on Windows | Safe to ignore |
-
-
-
-\## Known limitations
-
-
-
-\- This is a static website served by Nginx. There is no backend or database, so no data is stored on a server.
-
-\- Tested only with Docker Desktop on Windows.
-
-
-
-
-
-
-
+## 10. Known limitations
+- The page background in `main.css` points to `bg.jpg`, which is not in the project, so login and sign-up pages show no background image.
+- `login.html` and `sign.html` load `../javascript/login.js` and `../javascript/sign.js`, which do not exist in this folder structure, so the login and sign-up validation scripts do not run.
+- Login and sign-up are front-end only (no real accounts).
+- Fonts, jQuery, icons and some images come from external CDNs, so internet is required.
